@@ -17,9 +17,9 @@ const PieCharts = () => {
   });
 
   const CustomLegend = ({ payload }) => (
-    <div className="flex flex-col bg-yellow-300 w-fit ]">
+    <div className="flex flex-col g-yellow-300 w-fit ] md:pl-8">
       {payload.map((entry, index) => (
-        <div key={`legend-${index}`} className="mb-1 bg-slate-500  w-fit flex ">
+        <div key={`legend-${index}`} className="mb-1 b-slate-500  w-fit flex ">
           <svg className="w-4 h-4 mr-1">
             <circle cx="50%" cy="50%" r="50%" fill={entry.color} />
           </svg>

@@ -46,21 +46,23 @@ const Home = () => {
           
         </div>
         {/* Graph and piechart container */}
-        <div className="flex flex-col md:flex-row  h-[420px] bg-slate-500 justify-between">
+        <div className="flex flex-col lg:flex-row  h-[420px md:mt-10 b-slate-500 justify-between">
         <Graph/>
        <PieCharts/>
         </div>
 
        {/* Table container */}
-       <div className="b-yellow-400  flex md:flex-row   mt-4">
+       <div className="g-yellow-400  flex flex-col lg:flex-row md:mt-8">
+        <div className="flex flex-col w-full items-center">
         <Table />
-        <div className="w-[25%] mt-4 rounded-lg bg-white shadow-2xl ">
+
+        <div className="w-[60%] mt-4 rounded-lg bg-white shadow-2xl lg:hidden  ">
             <div >
                 <img src={ladyPic} className="size-full"/>
-                <div className=" flex items-center justify-center flex-col gap-2 py-2">
+                <div className=" flex items-center justify-center flex-col gap-1 py-1">
                     <p className="font-semibold">John Deo</p>
                     <p className="text-gray-500 font-semibold">CEO</p>
-                    <div className=" flex flex-row gap-5 ">
+                    <div className=" flex flex-row gap-3 ">
 <img src={facebook}/>
 <img src={insta}/>
 <img src={twitter}/>
@@ -70,39 +72,59 @@ const Home = () => {
             </div>
         
         </div>
+         {/* button bottum */}
+ <div className="flex items-center justify-center h-16 space-x-2 mt-4">
+ <button
+   className="bg-gray-300 text-white font-bold py-2 px-4 rounded"
+   onClick={handlePrevPage}
+ >
+   &lt;
+ </button>
+
+ {[...Array(10)].map((_, index) => {
+   const pageNumber = index + 1;
+   return (
+     <button
+       key={pageNumber}
+       className={`${
+         currentPage === pageNumber ? 'border-2 border-black ' : 'bg-gray-200 text-gray-800'
+       } font-bold py-2 px-4 rounded`}
+       onClick={() => handlePageChange(pageNumber)}
+     >
+       {pageNumber}
+     </button>
+   );
+ })}
+
+ <button
+   className="bg-gray-300 text-white font-bold py-2 px-4 rounded"
+   onClick={handleNextPage}
+ >
+   &gt;
+ </button>
+</div>
+        </div>
+        
+        <div className="w-[25%] mt-4 rounded-lg bg-white shadow-2xl hidden lg:block ">
+            <div >
+                <img src={ladyPic} className="size-full"/>
+                <div className=" flex items-center justify-center flex-col gap-1 py-1">
+                    <p className="font-semibold">John Deo</p>
+                    <p className="text-gray-500 font-semibold">CEO</p>
+                    <div className=" flex flex-row gap-3 ">
+<img src={facebook}/>
+<img src={insta}/>
+<img src={twitter}/>
+                    </div>
+                </div>
+                
+            </div>
+        
+        </div>
+
         
        </div>
-       {/* button bottum */}
-       <div className="flex items-center justify-center h-16 space-x-2">
-      <button
-        className="bg-blue-500 text-white font-bold py-2 px-4 rounded"
-        onClick={handlePrevPage}
-      >
-        &lt;
-      </button>
-
-      {[...Array(10)].map((_, index) => {
-        const pageNumber = index + 1;
-        return (
-          <button
-            key={pageNumber}
-            className={`${
-              currentPage === pageNumber ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'
-            } font-bold py-2 px-4 rounded`}
-            onClick={() => handlePageChange(pageNumber)}
-          >
-            {pageNumber}
-          </button>
-        );
-      })}
-
-      <button
-        className="bg-blue-500 text-white font-bold py-2 px-4 rounded"
-        onClick={handleNextPage}
-      >
-        &gt;
-      </button>
-    </div>
+      
   
       </div>
       
@@ -111,3 +133,4 @@ const Home = () => {
 };
 
 export default Home;
+
