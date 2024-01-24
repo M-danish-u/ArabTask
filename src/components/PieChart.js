@@ -17,9 +17,9 @@ const PieCharts = () => {
   });
 
   const CustomLegend = ({ payload }) => (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-yellow-300 w-fit ]">
       {payload.map((entry, index) => (
-        <div key={`legend-${index}`} className="mb-2 flex items-center">
+        <div key={`legend-${index}`} className="mb-1 bg-slate-500  w-fit flex ">
           <svg className="w-4 h-4 mr-1">
             <circle cx="50%" cy="50%" r="50%" fill={entry.color} />
           </svg>
@@ -30,14 +30,14 @@ const PieCharts = () => {
   );
 
   return (
-    <div className='bg-white p-4 rounded-lg items-center justify-center shadow-2xl mt-5'>
-      <PieChart width={500} height={500} className=''>
+    <div className='bg-white  rounded-lg   shadow-2xl mt-5'>
+      <PieChart width={500} height={400} className=''>
         <Pie data={pieChartData} cx="50%" cy="50%" fill="#8884d8" dataKey="value">
           {pieChartData.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={colors[index]} />
           ))}
         </Pie>
-        <Legend content={<CustomLegend />} align="center" />
+        <Legend content={<CustomLegend />} align="" />
       </PieChart>
     </div>
   );

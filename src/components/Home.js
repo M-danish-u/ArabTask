@@ -46,7 +46,7 @@ const Home = () => {
           
         </div>
         {/* Graph and piechart container */}
-        <div className="flex flex-col md:flex-row  justify-between">
+        <div className="flex flex-col md:flex-row  h-[420px] bg-slate-500 justify-between">
         <Graph/>
        <PieCharts/>
         </div>
